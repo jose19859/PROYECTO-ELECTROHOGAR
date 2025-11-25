@@ -1,0 +1,86 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const listContainer = document.getElementById('lista-productos-carrito');
+    const totalElement = document.getElementById('total-carrito');
+    const vaciarButton = document.getElementById('boton-vaciar');
+    const finalizarButton = document.querySelector('.boton-finalizar'); 
+    
+    //  Obtener el carrito de LocalStorage
+    const cartString = localStorage.getItem('shoppingCart');
+    let cart = cartString ? JSON.parse(cartString) : [];
+    let totalPrice = 0; 
+
+    // Función para renderizar el carrito
+    function renderCart() {
+        listContainer.innerHTML = ''; 
+
+        if (cart.length === 0) {
+            listContainer.innerHTML = '<p class="carrito-vacio-msg">Tu carrito está vacío. ¡Añade algunas ofertas!</p>';
+            totalElement.textContent = 'Total: $0';
+            vaciarButton.style.display = 'none';
+            finalizarButton.disabled = true; 
+            return;
+        }
+
+        totalPrice = 0;
+        vaciarButton.style.display = 'block';
+        finalizarButton.disabled = false; 
+
+        //  Iterar sobre los productos y crear el HTML
+        cart.forEach(item => {
+            totalPrice += item.price;
+            
+            const productDiv = document.createElement('div');
+            productDiv.classList.add('item-carrito');
+            
+            const formattedPrice = item.price.toLocaleString('es-ES'); 
+            
+            productDiv.innerHTML = `
+                <p class="nombre-item">📦 ${item.name}</p>
+                <p class="precio-item">Precio: $${formattedPrice}</p>
+            `;
+            listContainer.appendChild(productDiv);
+        });
+
+        //  Actualizar el total
+        const formattedTotal = totalPrice.toLocaleString('es-ES');
+        totalElement.textContent = `Total: $${formattedTotal}`;
+    }
+
+    // confirmación ANTES de vaciar
+    function clearCart() {
+        
+        const confirmacion = confirm("ALERTA: Estás a punto de vaciar tu Carrito. Perderás todas tus compras. ¿Deseas continuar?");
+        
+        
+        if (confirmacion) {
+            cart = []; 
+            localStorage.setItem('shoppingCart', JSON.stringify(cart)); 
+            renderCart(); 
+        }
+    }
+    
+    // Función para simular la finalización de la compra
+    function finalizePurchase() {
+        if (cart.length === 0) {
+            alert("Tu carrito está vacío. ¡Agrega productos antes de finalizar!");
+            return;
+        }
+        
+        alert(`🎉 ¡Compra Finalizada con éxito! Total pagado: $${totalPrice.toLocaleString('es-ES')}.\nGracias por tu compra en ElectroCasa.`);
+
+        // Vacía el carrito después de la "compra"
+        cart = []; 
+        localStorage.setItem('shoppingCart', JSON.stringify(cart)); 
+        renderCart(); 
+    }
+
+    // --- ASIGNACIÓN DE EVENTOS ---
+    vaciarButton.addEventListener('click', clearCart);
+    
+    // La línea del alert que se ejecutaba al cargar ha sido eliminada.
+    
+    finalizarButton.addEventListener('click', finalizePurchase); 
+
+    // Renderizar la vista al cargar la página
+    renderCart();
+});

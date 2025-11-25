@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="shortcut icon" href="caja-de-regalo.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contáctenos | ElectroCasa</title>
+    
+    <link rel="stylesheet" href="contacto.css"> 
+</head>
+<body>
+    
+    <header class="main-header">
+        <nav class="menu">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="productos.html">Nuestros Productos</a></li>
+                <li><a href="sobre-nosotros.html">Nosotros</a></li>
+                <li><a href="contacto.html">Contáctenos</a></li>
+                <li>
+                    <a href="carritoCompras.html" class="cart-icon">
+                        🛒 Carrito
+                        <span class="carrito-count">0</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+    <h2 class="titulo-formulario">Formulario de Contacto</h2>
+
+    <section class="formulario-section">
+        <form action="https://formspree.io/f/xvgwqlyg" method="POST" class="contacto-form">
+            
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="email">Correo Electrónico:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="mensaje">Mensaje:</label>
+            <textarea id="mensaje" name="mensaje" rows="6" required></textarea>
+
+            <button type="submit" class="btn-enviar">Enviar Mensaje</button>
+        </form>
+    </section>
+
+    <section class="redes-section">
+        <h3 class="redes-titulo">Síguenos</h3>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/" target="_blank"><img src="/css/imagenes/sucursales/faceb.png" alt="Facebook"></a>
+            <a href="https://www.instagram.com/" target="_blank"><img src="/css/imagenes/sucursales/instagram.png" alt="Instagram"></a>
+            <a href="https://web.whatsapp.com/" target="_blank"><img src="/css/imagenes/sucursales/whatsappt.png" alt="WhatsApp"></a>
+        </div>
+        <p class="redes-texto">Síguenos en nuestras redes sociales para estar al tanto de las últimas novedades y ofertas exclusivas.</p>
+    </section>
+</main>
+    
+    <script src="carrito.js" defer></script> 
+</body>
+</html>

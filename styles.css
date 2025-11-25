@@ -1,0 +1,262 @@
+/* --- Estilos Generales --- */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    /* Un degradado más sutil y moderno */
+    background: linear-gradient(135deg, #1CB5E0 0%, #000851 100%);
+    min-height: 100vh;
+}
+
+/* --- Encabezado (Header) --- */
+.main-header {
+    position: relative;
+    
+}
+
+/* Contenedor para Logo y Título para centrado o posicionamiento más fácil */
+.header-branding {
+    text-align: center;
+    padding-top: 0px; /* Redúcelo a un valor pequeño */
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+.header-branding img[alt="todo para tu hogar"] {
+    width: 50%; 
+    max-width: 800px; 
+    height: auto;
+    display: block; 
+    margin: 0px auto; 
+}
+    
+
+/* Título principal */
+.titulo-principal {
+    color: yellow;
+    font-size: 20.2em;
+    margin: 0 0 15px 0;
+    margin-top: 0;
+    padding-left: 140px; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+/* --- Estilos específicos para el Carrito de Compras en el Menú --- */
+
+/* Contenedor del enlace del carrito */
+.menu ul .cart-count {
+    position: relative;
+    display: flex;
+    align-items: center; 
+    gap: 5px; 
+    background: #e36d2e; 
+    border-radius: 5px;
+    padding-right: 30px; 
+}
+
+.menu ul .cart-icon:hover {
+    background: #99f581; 
+}
+/* Estilo para el contador de artículos */
+.cart-count {
+    position: absolute;
+    top: 5px; 
+    right: 5px; 
+    background-color: red;
+    color: white;
+    font-size: 0.7em;
+    font-weight: bold;
+    border-radius: 50%; 
+    padding: 3px 6px;
+    line-height: 1; 
+    min-width: 15px; 
+    text-align: center;
+}
+
+/* Logo arriba a la izquierda */
+.logo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 120px;
+    height: auto;
+    border-radius: 8px;
+    z-index: 10;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+
+
+
+/* --- Barra de Navegación (Menu) --- */
+.menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex; 
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.menu ul li {
+    /* display: inline-block; ya no es necesario con flex */
+}
+
+.menu ul li a {
+    display: block;
+    padding: 15px 25px;
+    font-size: 1.2em;
+    color: white;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.menu ul li a:hover {
+    background: #444;
+}
+
+/* --- Contenido Principal (Main) --- */
+main {
+    padding-bottom: 50px; 
+}
+
+/* Frase Promocional */
+.frase-promocional {
+    text-align: center;
+    color: #ffd700; 
+    font-size: 1.8em;
+    margin: 40px 0 30px 0;
+    text-transform: uppercase;
+}
+
+/* Título de Ofertas */
+.oferta-titulo {
+    text-align: center;
+    color: white;
+    font-size: 2em;
+    margin-bottom: 30px;
+    border-bottom: 3px solid #ffd700;
+    padding-bottom: 10px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* --- Contenedor GRID de Productos --- */
+.productos-grid {
+    display: grid;
+    
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 30px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto 50px auto;
+}
+
+/* Cada tarjeta de producto */
+.producto-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.producto-card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Imagen de producto */
+.producto-card img {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    object-fit: contain; 
+}
+
+.producto-card .nombre {
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.producto-card .precio {
+    font-size: 1.5em;
+    color: #c0392b; 
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Botón de compra */
+.boton-oferta {
+    padding: 12px 25px;
+    font-size: 1.1em;
+    background: #27ae60; 
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.boton-oferta:hover {
+    background: #2ecc71;
+}
+
+
+
+/* Envío */
+.envio-info {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    padding: 20px;
+    margin: 40px auto;
+    width: 90%;
+    max-width: 800px;
+    border-radius: 10px;
+}
+
+.envio-info h3 {
+    font-size: 1.5em;
+    margin-top: 0;
+}
+
+/* Medios de pago */
+.medios-de-pago-titulo {
+    text-align: center;
+    color: white;
+    margin-top: 40px;
+    font-size: 2em;
+}
+
+.lista-destacada {
+    text-align: center;
+    color: white;
+    font-size: 1.2em;
+    list-style: none;
+    padding: 0;
+    margin-bottom: 50px;
+}
+
+.lista-destacada li {
+    padding: 5px 0;
+}
+
+/* --- Pie de Página (Footer) --- */
+.pie-de-pagina {
+    background: #111; 
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 0; 

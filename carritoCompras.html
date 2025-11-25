@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ElectroCasa - Mi Carrito</title>
+    <link rel="stylesheet" href="/carritoCompras.css"> 
+</head>
+
+<body>
+    
+    <header class="main-header">
+        <div class="header-branding">
+            <h1 style="text-align: center; color: white;">ElectroCasa - Compras</h1>
+        </div>
+        
+        <nav class="menu">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="productos.html">Nuestros Productos</a></li>
+                <li><a href="sobre-nosotros.html">Nosotros</a></li>
+                <li><a href="contacto.html">Contáctenos</a></li>
+                <li>
+                    <a href="carritoCompras.html" class="cart-icon">
+                        🛒 Carrito
+                        <span class="carrito-count">0</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main class="carrito-main">
+        <h1 class="titulo-carrito">🛍️ Mi Carrito de Compras</h1>
+        
+        <section class="carrito-layout">
+            
+            <div id="lista-productos-carrito" class="lista-items">
+                <p class="carrito-vacio-msg">Tu carrito está vacío.</p>
+            </div>
+
+            <aside id="resumen-compra" class="resumen-card">
+                <h3 class="resumen-titulo">Resumen del Pedido</h3>
+                
+                <p id="total-carrito" class="total-final">Total: $0</p> 
+                
+                <button class="boton-finalizar">Finalizar Compra</button>
+                <button id="boton-vaciar" class="boton-vaciar">Vaciar Carrito</button>
+            </aside>
+            
+        </section>
+    </main>
+
+    <script src="carrito-view.js" defer></script> 
+</body>
+</html>

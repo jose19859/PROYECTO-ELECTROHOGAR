@@ -1,0 +1,306 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    /* Fondo principal de degradado */
+    background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+    background-size: cover;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    color: white;
+}
+/* --- Estilos para la estructura del Header--- */
+
+.main-header {
+    
+    position: relative;
+    padding-bottom: 10px;
+}
+
+/* --- Estilos de la Barra de Navegación y el Carrito --- */
+.menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.menu ul li a {
+    display: block;
+    padding: 15px 25px;
+    font-size: 1.1em;
+    color: white;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.menu ul li a:hover {
+    background: #444;
+}
+
+/* Estilo del contador del carrito */
+.carrito-count { 
+    background-color: red;
+    color: white;
+    font-size: 0.8em;
+    font-weight: bold;
+    border-radius: 50%;
+    padding: 3px 6px;
+    margin-left: 5px;
+}
+
+/* --- 1. Header y Navegación --- */
+.main-header {
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.header-branding {
+    text-align: center;
+    padding-top: 20px;
+}
+
+.logo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 120px;
+    height: auto;
+    border-radius: 8px;
+    z-index: 10;
+}
+
+/* Barra de Navegación */
+.menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.menu ul li a {
+    display: block;
+    padding: 15px 25px;
+    font-size: 1.1em;
+    color: white;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.menu ul li a:hover {
+    background: #444;
+}
+
+/* Estilo del contador del carrito */
+.carrito-count { 
+    background-color: red;
+    color: white;
+    font-size: 0.8em;
+    font-weight: bold;
+    border-radius: 50%;
+    padding: 3px 6px;
+    margin-left: 5px;
+}
+
+/* Título de la sección */
+.oferta-titulo {
+    text-align: center;
+    color: white;
+    font-size: 2em;
+    margin: 40px auto 30px auto;
+    border-bottom: 3px solid #ffd700;
+    padding-bottom: 10px;
+    width: fit-content;
+}
+
+/* --- GRID y Tarjetas de Producto (Específico de Productos) --- */
+
+
+.grid__container {
+    border: 3px solid rgba(255, 255, 255, 0.4);
+    border-radius: 10px; 
+    width: 90%;
+    max-width: 1200px; 
+    margin: 50px auto;
+    padding: 1.5rem; 
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+
+    display: grid;
+    
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 30px; 
+}
+
+/* Ítems de la Grilla (Tarjeta de Producto) */
+.producto-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px; 
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.producto-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Imagen */
+.producto-card img {
+    width: 100%;
+    max-width: 220px;
+    height: auto;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    object-fit: contain;
+}
+
+/* Nombres y Precios */
+.producto-card .nombre {
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.producto-card .precio {
+    font-size: 1.5em;
+    color: #c0392b; 
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Botón de Compra */
+.boton-oferta {
+    padding: 12px 25px;
+    font-size: 1.1em;
+    background: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.boton-oferta:hover {
+    background: #2ecc71;
+}
+
+/* --- Pie de Página (Footer) --- */
+.pie-de-pagina {
+    background: #111;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+    width: 100%;
+}
+/* --- Estilos para la página Sobre Nosotros --- */
+
+.titulo-principal {
+    text-align: center;
+    color: #ffd700; 
+    font-size: 3em;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+/* 🔑 Diseño de Dos Columnas (Flexbox) - ESTO ES CRUCIAL */
+.contenido-layout {
+    display: flex; /* Activa Flexbox para las columnas */
+    flex-wrap: wrap; /* Permite que las columnas se apilen en móviles */
+    max-width: 1200px;
+    margin: 0 auto 50px auto;
+    padding: 30px; /* Aumentar el padding interno */
+    gap: 40px; /* Espacio entre las columnas */
+    align-items: flex-start; /* Alinea los elementos en la parte superior */
+    
+    /* 💡 SOLUCIÓN: Agregamos un fondo semi-transparente para mejorar la legibilidad del texto */
+    background: rgba(0, 0, 0, 0.4); /* Fondo oscuro semi-transparente */
+    border-radius: 15px; /* Bordes redondeados */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5); /* Sombra para destacarlo */
+}
+
+.columna-texto {
+    flex: 2; /* Ocupa más espacio (aprox. 60%) */
+    min-width: 300px; /* Ancho mínimo para que no se comprima demasiado */
+    /* 💡 OPCIONAL: Si el texto sigue siendo difícil, puedes darle un fondo individual */
+    /* background: rgba(255, 255, 255, 0.1); */
+    /* padding: 20px; */
+    /* border-radius: 10px; */
+}
+
+.columna-imagen {
+    flex: 1; /* Ocupa menos espacio (aprox. 40%) */
+    min-width: 250px; /* Ancho mínimo para la imagen */
+    text-align: center;
+    display: flex; /* Usamos flex para centrar verticalmente la imagen si es necesario */
+    align-items: center;
+    justify-content: center;
+}
+
+.imagen-equipo {
+    width: 100%;
+    max-width: 400px; /* Limita el tamaño máximo de la imagen */
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Estilos de Tipografía */
+.subtitulo-nosotros {
+    color: #00bf72; /* Verde para destacar */
+    font-size: 1.8em; /* Un poco más grande */
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.columna-texto p {
+    line-height: 1.7;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    color: #f0f0f0; /* Blanco suave para el texto */
+}
+
+.slogan-final {
+    margin-top: 30px;
+    font-size: 1.3em; /* Un poco más grande */
+    color: #ffd700; /* Dorado para el eslogan */
+    font-style: italic;
+    font-weight: bold;
+}
+
+/* --- Media Query para Móviles --- */
+@media (max-width: 768px) {
+    .contenido-layout {
+        flex-direction: column; /* Apila las columnas verticalmente */
+        padding: 20px; /* Ajusta el padding para móviles */
+        gap: 25px; /* Ajusta el gap */
+    }
+    .columna-imagen {
+        order: -1; /* Mueve la imagen arriba del texto en móviles */
+        margin-bottom: 20px;
+    }
+    .titulo-principal {
+        font-size: 2.2em;
+    }
+    .subtitulo-nosotros {
+        font-size: 1.4em;
+    }
+}

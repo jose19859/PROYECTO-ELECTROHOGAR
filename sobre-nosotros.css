@@ -1,0 +1,87 @@
+
+
+/* Título principal de la página */
+.titulo-principal {
+    text-align: center;
+    color: #ffd700; 
+    font-size: 3em;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+/* 🔑 Diseño de Dos Columnas (Flexbox) */
+.contenido-layout {
+    display: flex; 
+    flex-wrap: wrap; 
+    max-width: 1200px;
+    margin: 0 auto 50px auto;
+    padding: 30px; 
+    gap: 40px; 
+    align-items: flex-start;
+    
+    
+    background: rgba(0, 0, 0, 0.4); 
+    border-radius: 15px; 
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5); 
+}
+
+.columna-texto {
+    flex: 2; 
+    min-width: 300px;
+}
+
+.columna-imagen {
+    flex: 1; 
+    min-width: 250px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imagen-equipo {
+    width: 100%;
+    max-width: 400px; 
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Estilos de Tipografía y Subtítulos */
+.subtitulo-nosotros {
+    color: #00bf72; 
+    font-size: 1.8em;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.columna-texto p {
+    line-height: 1.7;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    color: #f0f0f0; 
+}
+
+.slogan-final {
+    margin-top: 30px;
+    font-size: 1.3em; 
+    color: #ffd700;
+    font-style: italic;
+    font-weight: bold;
+}
+
+/* --- Media Query para Móviles --- */
+@media (max-width: 768px) {
+    .contenido-layout {
+        flex-direction: column; 
+        padding: 20px;
+        gap: 25px;
+    }
+    .columna-imagen {
+        order: -1; 
+        margin-bottom: 20px;
+    }
+    .titulo-principal {
+        font-size: 2.2em;
+    }
+}
