@@ -3,11 +3,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const totalElement = document.getElementById('total-carrito');
     const vaciarButton = document.getElementById('boton-vaciar');
     const finalizarButton = document.querySelector('.boton-finalizar'); 
+    // 1. OBTENER EL ELEMENTO DEL CONTADOR
+    const countElement = document.querySelector('.carrito-count'); 
     
-    //  Obtener el carrito de LocalStorage
+    // Obtener el carrito de LocalStorage
     const cartString = localStorage.getItem('shoppingCart');
     let cart = cartString ? JSON.parse(cartString) : [];
     let totalPrice = 0; 
+
+    // --- FUNCIONES DE SOPORTE ---
+
+    // Función para actualizar el contador del carrito en el header
+    function updateCartCount() {
+        const itemCount = cart.length; 
+        if (countElement) {
+            countElement.textContent = itemCount;
+        }
+    }
 
     // Función para renderizar el carrito
     function renderCart() {
@@ -18,32 +30,35 @@ document.addEventListener('DOMContentLoaded', () => {
             totalElement.textContent = 'Total: $0';
             vaciarButton.style.display = 'none';
             finalizarButton.disabled = true; 
-            return;
+        } else {
+            totalPrice = 0;
+            vaciarButton.style.display = 'block';
+            finalizarButton.disabled = false; 
+
+            //  Iterar sobre los productos y crear el HTML
+            cart.forEach(item => {
+                // Se asume que item.price es un número y que cada ítem representa 1 unidad para el contador
+                totalPrice += item.price;
+                
+                const productDiv = document.createElement('div');
+                productDiv.classList.add('item-carrito');
+                
+                const formattedPrice = item.price.toLocaleString('es-ES'); 
+                
+                productDiv.innerHTML = `
+                    <p class="nombre-item">📦 ${item.name}</p>
+                    <p class="precio-item">Precio: $${formattedPrice}</p>
+                `;
+                listContainer.appendChild(productDiv);
+            });
+
+            //  Actualizar el total
+            const formattedTotal = totalPrice.toLocaleString('es-ES');
+            totalElement.textContent = `Total: $${formattedTotal}`;
         }
-
-        totalPrice = 0;
-        vaciarButton.style.display = 'block';
-        finalizarButton.disabled = false; 
-
-        //  Iterar sobre los productos y crear el HTML
-        cart.forEach(item => {
-            totalPrice += item.price;
-            
-            const productDiv = document.createElement('div');
-            productDiv.classList.add('item-carrito');
-            
-            const formattedPrice = item.price.toLocaleString('es-ES'); 
-            
-            productDiv.innerHTML = `
-                <p class="nombre-item">📦 ${item.name}</p>
-                <p class="precio-item">Precio: $${formattedPrice}</p>
-            `;
-            listContainer.appendChild(productDiv);
-        });
-
-        //  Actualizar el total
-        const formattedTotal = totalPrice.toLocaleString('es-ES');
-        totalElement.textContent = `Total: $${formattedTotal}`;
+        
+        // 3. LLAMAR A LA FUNCIÓN DE ACTUALIZACIÓN DEL CONTADOR
+        updateCartCount(); 
     }
 
     // confirmación ANTES de vaciar
@@ -55,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (confirmacion) {
             cart = []; 
             localStorage.setItem('shoppingCart', JSON.stringify(cart)); 
-            renderCart(); 
+            renderCart(); // Renderiza y actualiza el contador
         }
     }
     
@@ -71,16 +86,13 @@ document.addEventListener('DOMContentLoaded', () => {
         // Vacía el carrito después de la "compra"
         cart = []; 
         localStorage.setItem('shoppingCart', JSON.stringify(cart)); 
-        renderCart(); 
+        renderCart(); // Renderiza y actualiza el contador
     }
 
     // --- ASIGNACIÓN DE EVENTOS ---
     vaciarButton.addEventListener('click', clearCart);
-    
-    // La línea del alert que se ejecutaba al cargar ha sido eliminada.
-    
     finalizarButton.addEventListener('click', finalizePurchase); 
 
-    // Renderizar la vista al cargar la página
+    // Renderizar la vista al cargar la página (esto también inicializa el contador)
     renderCart();
 });
